@@ -1,0 +1,62 @@
+{
+  "name": "Bulk Number Activity",
+  "brand": "NumDetect",
+  "repository": "numdetect/phone-bulk-activity-api",
+  "description": "Let the next follow-up start with an activity signal. Find recent activity across a full number list, separate dormant records from numbers worth reviewing, and use the result to plan reactivation, segmentation and outreach priorities.",
+  "official_site": "https://numdetect.com",
+  "landing_page": "https://numdetect.com/products/number_activity_batch",
+  "canonical_docs": "https://numdetect.com/api-docs",
+  "base_url": "https://numdetect.com",
+  "auth": {
+    "type": "api_key",
+    "header": "X-API-Key"
+  },
+  "mode": "async-bulk",
+  "product": "number_activity_batch",
+  "identifier_kind": "phone",
+  "requires_country": true,
+  "endpoints": {
+    "submit": {
+      "method": "POST",
+      "path": "/api/v1/bulk-tasks"
+    },
+    "status": {
+      "method": "GET",
+      "path": "/api/v1/bulk-tasks/{id}"
+    },
+    "balance": {
+      "method": "GET",
+      "path": "/api/v1/balance"
+    }
+  },
+  "limits": {
+    "min_items": 500,
+    "max_items": 100000,
+    "poll_interval_seconds": 30,
+    "file_formats": [
+      "txt",
+      "csv"
+    ]
+  },
+  "result_fields": [
+    {
+      "name": "number",
+      "example": "17253100591",
+      "description": "The original submitted E.164 number, used to map this result back to a list, customer or lead record. It does not include activity time, frequency or interaction details."
+    },
+    {
+      "name": "activated",
+      "example": "yes",
+      "description": "Whether an available activity signal was returned. Use it to support reactivation ordering and audience segmentation; it is not an active-day count, frequency or specific observation time."
+    }
+  ],
+  "statuses": [
+    "processing",
+    "success",
+    "failed"
+  ],
+  "pricing_url": "https://numdetect.com/pricing",
+  "maintainer": "NumDetect",
+  "license": "MIT",
+  "last_reviewed": "2026-09-22"
+}
