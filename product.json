@@ -1,5 +1,5 @@
 {
-  "name": "Bulk Number Activity",
+  "name": "Number Activity",
   "brand": "NumDetect",
   "repository": "numdetect/phone-bulk-activity-api",
   "description": "Let the next follow-up start with an activity signal. Find recent activity across a full number list, separate dormant records from numbers worth reviewing, and use the result to plan reactivation, segmentation and outreach priorities.",
@@ -31,7 +31,7 @@
   },
   "limits": {
     "min_items": 500,
-    "max_items": 100000,
+    "max_items": 500000,
     "poll_interval_seconds": 30,
     "file_formats": [
       "txt",
@@ -40,14 +40,14 @@
   },
   "result_fields": [
     {
-      "name": "number",
-      "example": "17253100591",
-      "description": "The original submitted E.164 number, used to map this result back to a list, customer or lead record. It does not include activity time, frequency or interaction details."
+      "name": "identifier",
+      "example": "12345678900",
+      "description": "Submitted identifier, used to join the result to the input. Phone identifiers include their country code."
     },
     {
       "name": "activated",
-      "example": "yes",
-      "description": "Whether an available activity signal was returned. Use it to support reactivation ordering and audience segmentation; it is not an active-day count, frequency or specific observation time."
+      "example": "true",
+      "description": "The determined positive/negative signal for this product; interpret it in the product context."
     }
   ],
   "statuses": [
@@ -58,5 +58,5 @@
   "pricing_url": "https://numdetect.com/pricing",
   "maintainer": "NumDetect",
   "license": "MIT",
-  "last_reviewed": "2026-09-22"
+  "last_reviewed": "2026-10-30"
 }
